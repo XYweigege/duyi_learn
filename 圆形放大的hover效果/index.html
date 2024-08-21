@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 注意：img不能设置::before\::after */
+      .card {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        position: relative;
+        background-image: url(./img/2.jpg);
+        background-size: 100%;
+      }
+      .card::before,
+      .card::after {
+        content: "";
+        position: absolute;
+        /* 代表上下左右都是0 */
+        inset: 0;
+        z-index: 1;
+        border-radius: 50%;
+      }
+      .card::before {
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+      .card::after {
+        /* 继承父元素的背景图 */
+        background: inherit;
+        clip-path: circle(0% at 50% 50%);
+        transition: all 0.3s;
+      }
+      .card:hover::after {
+        clip-path: circle(50% at 50% 50%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card"></div>
+  </body>
+</html>
