@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      /* 注意：img不能设置::before\::after */
+      /* 注意：img不能设置::before\::after，见 问题img */
       .card {
         width: 200px;
         height: 200px;
@@ -32,6 +32,7 @@
         clip-path: circle(0% at 50% 50%);
         transition: all 0.3s;
       }
+      /* 书写顺序不能反 见 问题img */
       .card:hover::after {
         clip-path: circle(50% at 50% 50%);
       }

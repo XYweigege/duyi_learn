@@ -17,6 +17,7 @@ body {
   position: relative;
   transition: all 0.3s;
 }
+/* n 的有关问题见 问题img */
 .imgItem:nth-child(3n + 1) {
   left: -20px;
   background-position-x: 0;
