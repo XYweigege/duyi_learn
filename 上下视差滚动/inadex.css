@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.scroll-container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+.item img {
+  width: 100vw;
+  height: 100vh;
+  transition: all 2s;
+}
+.prev,
+.next {
+  position: absolute;
+  height: 0;
+  width: 100%;
+  overflow: hidden;
+  transition: all 2s;
+}
+.prev {
+  top: 0;
+}
+.prev img {
+  transform: translateY(-10%);
+}
+.next {
+  bottom: 0;
+}
+.next img {
+  transform: translateY(10%);
+}
+
+.scroll-up .prev,
+.scroll-down .next {
+  height: 100%;
+}
+.scroll-up .prev img,
+.scroll-down .next img {
+  transform: translateY(0);
+}
