@@ -27,13 +27,13 @@ function getContent() {
   const prevIndex = getPrevIndex();
   const nextIndex = getNextIndex();
   const prevDiv = creatDiv(prevIndex);
-  const curDiv = creatDiv(curIndex);
+  creatDiv(curIndex);
   const nextDiv = creatDiv(nextIndex);
   prevDiv.classList.add("prev");
-  curDiv.classList.add("cur");
   nextDiv.classList.add("next");
 }
 
+// 避免一直重复触发，导致跳跃
 let animationDoing = false;
 window.addEventListener("wheel", (e) => {
   if (!e.deltaY || animationDoing) {

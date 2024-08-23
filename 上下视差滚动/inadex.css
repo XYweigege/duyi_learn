@@ -13,6 +13,7 @@
   height: 100vh;
   transition: all 2s;
 }
+/* 前后都高度为零，需要展示时设置高度为100vh */
 .prev,
 .next {
   position: absolute;
@@ -24,6 +25,7 @@
 .prev {
   top: 0;
 }
+/* 将图片也搞得有点动效 */
 .prev img {
   transform: translateY(-10%);
 }
