@@ -20,7 +20,6 @@
       .photoBox {
         width: 100%;
         height: 300px;
-        border-radius: 50%;
         position: absolute;
         bottom: 0;
       }
@@ -43,7 +42,6 @@
           transparent 140px,
           red 140px
         );
-        z-index: 1;
       }
       .photoBox::after {
         border-top-left-radius: 0px;
@@ -56,14 +54,11 @@
           transparent 140px,
           red 140px
         );
-        z-index: 9;
       }
       img {
-        position: relative;
         width: 100%;
         height: 100%;
         transition: all 0.5s;
-        z-index: 5;
       }
       .photoBox:hover img {
         transform: scale(1.3);
