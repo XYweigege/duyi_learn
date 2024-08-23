@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .tab {
+        margin: auto;
+        width: 80px;
+        height: 30px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        background-color: orange;
+        position: relative;
+        /* 重点，上面的不是画的，是旋转出来的 */
+        transform: perspective(30px) rotateX(21deg);
+        transform-origin: center bottom;
+      }
+      .tab::before,
+      .tab::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        width: 10px;
+        height: 10px;
+      }
+      .tab::before {
+        left: -10px;
+        background-image: radial-gradient(
+          circle at 0 0,
+          transparent 10px,
+          rgb(255, 165, 0) 10px
+        );
+      }
+      .tab::after {
+        right: -10px;
+        background-image: radial-gradient(
+          circle at 100% 0,
+          transparent 10px,
+          rgb(255, 165, 0) 10px
+        );
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tab"></div>
+  </body>
+</html>
