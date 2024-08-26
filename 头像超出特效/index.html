@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
+      /* 让下面超出隐藏，上面留白，避免超出 */
       .hideBottomBox {
         margin: 50px auto;
         width: 300px;
@@ -23,6 +24,7 @@
         position: absolute;
         bottom: 0;
       }
+      /* 画圆框 */
       .photoBox::after,
       .photoBox::before {
         content: "";
@@ -55,6 +57,7 @@
           red 140px
         );
       }
+      /* 放大图片 */
       img {
         width: 100%;
         height: 100%;

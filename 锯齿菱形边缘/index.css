@@ -1,0 +1,60 @@
+.imgBox {
+  margin: 50px auto;
+  width: 300px;
+  height: 300px;
+  background-image: url(./img/2.jpg);
+  background-size: 100%;
+  /* 小方块个数 */
+  --n: 11;
+  /* 每个小方块占的百分比 */
+  --s: calc(100% / var(--n));
+
+  /* 通过线性渐变、锥型渐变、mask、clip-path来绘制锯齿菱形 */
+
+  /* 产生小方块 */
+  /* background: repeating-conic-gradient(red 0 25%, transparent 25% 50%) 0 0 /
+    calc(var(--s) * 2) calc(var(--s) * 2); */
+
+  /* 产生两个交叉的四边形 */
+  /* background: linear-gradient(
+      45deg,
+      transparent 0 calc(25% + var(--s) / 4),
+      #000 calc(25% + var(--s) / 4) calc(75% - var(--s) / 4),
+      transparent calc(75% - var(--s) / 4) 100%
+    ),
+    linear-gradient(
+      -45deg,
+      transparent 0 calc(25% + var(--s) / 4),
+      #000 calc(25% + var(--s) / 4) calc(75% - var(--s) / 4),
+      transparent calc(75% - var(--s) / 4) 100%
+    ); */
+
+  /* 蒙版 --> 显示蒙版下的不透明的像素 */
+  mask: repeating-conic-gradient(red 0 25%, transparent 25% 50%) 0 0 /
+      calc(var(--s) * 2) calc(var(--s) * 2),
+    linear-gradient(
+      45deg,
+      transparent 0 calc(25% + var(--s) / 4),
+      #000 calc(25% + var(--s) / 4) calc(75% - var(--s) / 4),
+      transparent calc(75% - var(--s) / 4) 100%
+    ),
+    linear-gradient(
+      -45deg,
+      transparent 0 calc(25% + var(--s) / 4),
+      #000 calc(25% + var(--s) / 4) calc(75% - var(--s) / 4),
+      transparent calc(75% - var(--s) / 4) 100%
+    );
+
+  /* 蒙版合成方式  --> source-in 合成菱形，source-over 在菱形的基础上盖上小方块*/
+  -webkit-mask-composite: source-over, source-in;
+  /* 浏览器不支持这个 */
+  mask-composite: source-over, source-in;
+
+  /* 裁剪 */
+  clip-path: polygon(
+    50% calc(0% - var(--s) / 2),
+    calc(100% + var(--s) / 2) 50%,
+    50% calc(100% + var(--s) / 2),
+    calc(0% - var(--s) / 2) 50%
+  );
+}

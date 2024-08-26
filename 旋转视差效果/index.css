@@ -1,0 +1,68 @@
+.container {
+  width: 300px;
+  height: 300px;
+  margin: 100px auto;
+  overflow: hidden;
+  /* 网格布局 */
+  display: grid;
+  /*  声明列的宽度  */
+  grid-template-columns: repeat(3, 1fr);
+  /*  声明行的高度  */
+  grid-template-rows: repeat(3, 1fr);
+  /* 设置布局方式 */
+  grid-template:
+    "A A B"
+    "C D B"
+    "C E E";
+  gap: 5px;
+}
+.item {
+  overflow: hidden;
+  border: solid 2px #000;
+}
+.item img {
+  object-fit: cover;
+}
+.item:nth-child(1) {
+  grid-area: A;
+}
+.item:nth-child(2) {
+  grid-area: B;
+}
+.item:nth-child(3) {
+  grid-area: C;
+}
+.item:nth-child(4) {
+  grid-area: D;
+}
+.item:nth-child(5) {
+  grid-area: E;
+}
+
+/* 动画 */
+.container {
+  --r: 360deg;
+}
+.item img {
+  --r: -360deg;
+}
+.container,
+.item img {
+  /* 匀速、无穷 */
+  animation: ratation 10s linear infinite;
+}
+/* 到此处还不行，图片太小旋转有白边，之前设置的是img width:100%;height:100%; */
+.item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.item img {
+  width: 260%;
+  height: 260%;
+}
+@keyframes ratation {
+  to {
+    transform: rotate(var(--r));
+  }
+}
