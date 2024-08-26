@@ -1,0 +1,46 @@
+body {
+  background-color: #000;
+  color: #fff;
+}
+.container {
+  width: 90%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+/* 第一层卡片 */
+.card {
+  /* 参考MDN：https://developer.mozilla.org/zh-CN/docs/Web/CSS/aspect-ratio */
+  aspect-ratio: 4/3;
+  border-radius: 8px;
+  /* 做card自带的边框 */
+  background-color: rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+/* 第三层，内容 */
+.card .inner {
+  position: absolute;
+  /* 做card自带的边框 */
+  inset: 2px;
+  background-color: #000;
+  border-radius: inherit;
+  z-index: 3;
+}
+/* 第二层，做高亮边框用的，铺满整个元素 */
+/* 高亮就是根据鼠标位置移动这个伪元素中心点的位置 */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0px;
+  /* closest-side 设置用最短边的作为直径 */
+  background-image: radial-gradient(
+    closest-side circle,
+    rgba(255, 255, 255, 0.6) 0%,
+    transparent 100%
+  );
+  border-radius: inherit;
+  z-index: 2;
+  transform: translate(var(--x), var(--y));
+}

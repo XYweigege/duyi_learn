@@ -6,7 +6,7 @@ const btn = document.querySelector(".btn");
 
 // 获取img对象
 function lodingImg() {
-  // 默认写法 fileDom.files 就是获取文件的 或者 监听change 事件 通过 e.target | this.files 去获取文件
+  // 默认写法 fileDom.files 就是获取文件的 或者 监听change 事件 通过 e.target.files | this.files 去获取文件
   const file = fileDom.files[0];
   if (!file) {
     return;
