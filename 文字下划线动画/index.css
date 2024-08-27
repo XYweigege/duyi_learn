@@ -1,0 +1,17 @@
+.title {
+  line-height: 40px;
+}
+.title span {
+  /* 思考什么东西可以跟着行盒的方向一行行走：background */
+  background-image: linear-gradient(90deg, greenyellow, red);
+  background-repeat: no-repeat;
+  /* 一开始是： bottom left，但是鼠标移出是回退回去，和效果不符合！*/
+  background-position: bottom right;
+  background-size: 0px 2px;
+  transition: background-size 0.5s linear;
+}
+
+.title:hover span {
+  background-position: bottom left;
+  background-size: 100% 2px;
+}

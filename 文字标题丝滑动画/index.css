@@ -20,7 +20,7 @@
   /* 不能直接设置6px，会分离 */
   text-shadow: 1px 1px #333, 2px 2px #333, 3px 3px #333, 4px 4px #333,
     5px 5px #333, 6px 6px #333;
-  /* 直接设置无用，对span无效 */
+  /* 直接设置对span无效，需要title设置display:flex */
   /* 两种都可以，细微差别，按需求来 */
   /* transform: rotateZ(10deg); */
   transform: skew(-10deg);

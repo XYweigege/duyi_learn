@@ -1,0 +1,70 @@
+.box {
+  width: 300px;
+  height: 400px;
+  margin: 50px auto;
+  /* background-image: url(./img/sh.jpg); */
+  background-size: 100%;
+  position: relative;
+
+  /* 假如出现露馅问题 */
+  border: solid 2px #000;
+
+  /* 解决偏移问题 */
+  --x: 10px;
+  --y: 10px;
+}
+.box::after {
+  /* 必须设置的两个属性 */
+  content: "";
+  position: absolute;
+  /*  */
+  left: var(--x);
+  top: var(--y);
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  filter: blur(5px);
+  background-image: conic-gradient(
+    rgb(255, 81, 0),
+    rgb(238, 255, 0),
+    rgb(166, 255, 0),
+    rgb(0, 255, 64),
+    rgb(0, 255, 170),
+    rgb(0, 225, 255),
+    rgb(0, 68, 255),
+    rgb(153, 0, 255),
+    rgb(255, 0, 191),
+    rgb(255, 0, 128)
+  );
+
+  /* 到此只能适配图片这种覆盖住了后面的，万一没有图片，就露馅了！ */
+  /* 想到用clip-path */
+  /* 思路：裁剪出来的是显示部分，所以要这样裁剪，见：思路img */
+  /* clip-path: polygon(
+    -100vmax -100vmax,
+    100vmax -100vmax,
+    100vmax 100vmax,
+    -100vmax 100vmax,
+    -100vmax -100vmax,
+    0px 0px,
+    0px 100%,
+    100% 100%,
+    100% 0px,
+    0px 0px,
+    -100vmax -100vmax
+  ); */
+
+  /* 到此，还没结束，如果有偏移，裁剪需要跟着变，所以设置两个变量 */
+  clip-path: polygon(
+    -100vmax -100vmax,
+    100vmax -100vmax,
+    100vmax 100vmax,
+    -100vmax 100vmax,
+    -100vmax -100vmax,
+    calc(0px - var(--x)) calc(0px - var(--y)),
+    calc(0px - var(--x)) calc(100% - var(--y)),
+    calc(100% - var(--x)) calc(100% - var(--y)),
+    calc(100% - var(--x)) calc(0px - var(--y)),
+    calc(0px - var(--x)) calc(0px - var(--y))
+  );
+}
