@@ -1,0 +1,41 @@
+.titleBox {
+  width: 500px;
+  margin: 50px auto;
+}
+.title {
+  font-size: 100px;
+  transform: rotateZ(-10deg);
+  display: flex;
+}
+.title:nth-child(1) {
+  color: red;
+}
+.title:nth-child(2) {
+  color: greenyellow;
+}
+.title:nth-child(1) {
+  color: blueviolet;
+}
+.title span {
+  /* 不能直接设置6px，会分离 */
+  text-shadow: 1px 1px #333, 2px 2px #333, 3px 3px #333, 4px 4px #333,
+    5px 5px #333, 6px 6px #333;
+  /* 直接设置无用，对span无效 */
+  /* 两种都可以，细微差别，按需求来 */
+  /* transform: rotateZ(10deg); */
+  transform: skew(-10deg);
+  /* 动画ease点击后可以自行调整！ */
+  animation: move 1s var(--delay) cubic-bezier(0.15, 0.25, 0.69, 1.76) forwards;
+  opacity: 0;
+}
+
+@keyframes move {
+  from {
+    /* 因为本身有transfrom，所以要加上，不然就是覆盖了 */
+    transform: skew(-10deg) translateY(100px);
+  }
+  to {
+    transform: skew(-10deg) translateY(0);
+    opacity: 1;
+  }
+}
