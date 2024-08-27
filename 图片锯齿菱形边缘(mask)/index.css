@@ -29,7 +29,7 @@
       transparent calc(75% - var(--s) / 4) 100%
     ); */
 
-  /* 蒙版 --> 显示蒙版下的不透明的像素 */
+  /* 蒙版 --> 显示有颜色的蒙版下的不透明的像素 */
   mask: repeating-conic-gradient(red 0 25%, transparent 25% 50%) 0 0 /
       calc(var(--s) * 2) calc(var(--s) * 2),
     linear-gradient(
@@ -45,7 +45,7 @@
       transparent calc(75% - var(--s) / 4) 100%
     );
 
-  /* 蒙版合成方式  --> source-in 合成菱形，source-over 在菱形的基础上盖上小方块*/
+  /* 蒙版合成方式  --> source-in 合成菱形（保留交叉部分），source-over 在菱形的基础上盖上小方块（覆盖）*/
   -webkit-mask-composite: source-over, source-in;
   /* 浏览器不支持这个 */
   mask-composite: source-over, source-in;
