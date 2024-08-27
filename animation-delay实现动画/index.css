@@ -1,0 +1,16 @@
+.aniBox {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: red;
+  /* 注意：1s、paused都必须加上；滑块得max和1s保持一致，这里多少秒那边就多大！ */
+  /* 不带1s，那么var(--delay)就变成动画时间了 */
+  /* 不加paused，那么直接完成动画了，就不会停住 */
+  animation: move 1s var(--delay) linear forwards paused;
+}
+
+@keyframes move {
+  to {
+    transform: translateX(200px);
+  }
+}

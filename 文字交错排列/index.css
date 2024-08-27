@@ -1,0 +1,14 @@
+body {
+  background-color: #000;
+}
+.overlap {
+  font-size: 100px;
+  text-align: center;
+  color: #fff;
+}
+.overlap span {
+  letter-spacing: -20px;
+  /* 用阴影，后面的盖住前面的 --> 想到定位 */
+  text-shadow: 10px 0px 5px red;
+  position: relative;
+}
