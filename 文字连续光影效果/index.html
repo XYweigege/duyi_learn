@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .box {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: black;
+      }
+      span {
+        font-size: 10vw;
+        color: #fff;
+        /* alternate 表示无穷动画的时候，间隔位置的动画要反向 */
+        animation: spread 2s var(--delay) ease-in-out infinite alternate;
+      }
+      @keyframes spread {
+        to {
+          color: red;
+          text-shadow: 20px 0 70px red;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <p class="title">HELLO WORLD!</p>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>

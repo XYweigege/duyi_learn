@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.swiper {
+  height: 60vh;
+  background-color: #000;
+  position: relative;
+}
+.prevBtn,
+.nextBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  padding: 30px 10px;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.prevBtn {
+  left: 30px;
+}
+.nextBtn {
+  right: 30px;
+}
+
+.swiperItemBox {
+  position: absolute;
+  left: 50%;
+  width: 60%;
+  height: 100%;
+  transform: translateX(-50%);
+}
+.swiperItemBox .swiperItem {
+  position: absolute;
+  inset: 0;
+  transition: all 0.5s;
+}
+.swiperItemBox img {
+  width: 100%;
+  height: 100%;
+}

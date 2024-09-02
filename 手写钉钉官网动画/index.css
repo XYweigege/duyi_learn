@@ -1,0 +1,97 @@
+/* 通配符取消margin、padding */
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  height: 4000px;
+}
+/* 设置header占满屏幕，背景白色，文字黑色100px */
+.header {
+  height: 100vh;
+  width: 100%;
+  background-color: #fff;
+  color: #000;
+  font-size: 100px;
+  text-align: center;
+  line-height: 100vh;
+}
+
+.playground {
+  height: 2000px;
+  width: 100%;
+  background-color: #000;
+}
+/* 设置animation_container为粘性定位，并占满屏幕 */
+.animation_container {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+}
+
+/* 设置list在animation_container的中间，list-item排列成2行7列，均匀分布 */
+.list {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 50px;
+}
+
+/* 请设置list-item的宽高为100px，高宽比为1:1 */
+.list-item {
+  display: block;
+  width: 100px;
+  height: 100px;
+  aspect-ratio: 1/1;
+  border-radius: 5%;
+  transform: translate(23px, 10px) scale(1.5);
+}
+
+/* list-item有14个，请均匀分布在list中，且2行7列，颜色各不相同 */
+.list-item:nth-child(1) {
+  background-color: #f00;
+}
+.list-item:nth-child(2) {
+  background-color: #0f0;
+}
+.list-item:nth-child(3) {
+  background-color: #00f;
+}
+.list-item:nth-child(4) {
+  background-color: #ff0;
+}
+.list-item:nth-child(5) {
+  background-color: #0ff;
+}
+.list-item:nth-child(6) {
+  background-color: #f0f;
+}
+.list-item:nth-child(7) {
+  background-color: #fff;
+}
+.list-item:nth-child(8) {
+  background-color: #f00;
+}
+.list-item:nth-child(9) {
+  background-color: #0f0;
+}
+.list-item:nth-child(10) {
+  background-color: #00f;
+}
+.list-item:nth-child(11) {
+  background-color: #ff0;
+}
+.list-item:nth-child(12) {
+  background-color: #0ff;
+}
+.list-item:nth-child(13) {
+  background-color: #f0f;
+}
+.list-item:nth-child(14) {
+  background-color: #fff;
+}

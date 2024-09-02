@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>适用于任何路径描边！</title>
+    <style>
+      .p {
+        /* 设置颜色 */
+        stroke: red;
+        /* 设置线宽 */
+        stroke-width: 5;
+        /* 设置笔触 */
+        stroke-linecap: round;
+        /* 设置实心部分和空心部分的宽度，最少一个值 */
+        stroke-dasharray: var(--l);
+        /* 设置偏移量，向开始端 */
+        stroke-dashoffset: var(--l);
+        /* 设置填充 */
+        fill: none;
+        animation: move 2s forwards;
+      }
+      @keyframes move {
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <svg width="300px" height="300px">
+      <line class="p" x1="0" y1="50" x2="200" y2="50" />
+      <circle class="p" cx="50%" cy="50%" r="40"></circle>
+    </svg>
+  </body>
+  <script src="./index.js"></script>
+</html>

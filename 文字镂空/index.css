@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.bgBox {
+  width: 100%;
+  height: 100vh;
+  background-image: url(./img/bg.jpg);
+  background-size: 100% 100%;
+}
+.modal {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.title {
+  width: 100%;
+  height: 100vh;
+  font-size: 8vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* 文字描边属性，兼容性写法应该是设置8个方向的文字阴影！ */
+  text-stroke: 2px #fff;
+  -webkit-text-stroke: 2px #fff;
+  background-image: url(./img/bg.jpg);
+  background-size: 100% 100%;
+  /* 用于将背景图片、渐变或颜色应用到 文本本身 ，而不是整个元素的背景 */
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}

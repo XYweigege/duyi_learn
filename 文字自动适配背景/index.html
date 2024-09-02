@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>文字适配背景</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .banner {
+        height: 100vh;
+        /* 这个 45deg 一开始还没想到！ */
+        background-image: linear-gradient(45deg, #fff 0% 50%, #000 50% 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      p {
+        color: #fff;
+        font-size: 10vw;
+        /* difference 是差值算法（用于在多颜色背景上显示文字），由 rgb 各个数值相减获得（前景色 - 背景色），更多见：https://blog.csdn.net/langwang_100/article/details/127213466 */
+        mix-blend-mode: difference;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="banner">
+      <p>HELLO WORLD!</p>
+    </div>
+  </body>
+</html>

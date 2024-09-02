@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.box {
+  margin: 100px;
+}
+.card {
+  width: 180px;
+  position: relative;
+}
+.card .title {
+  position: absolute;
+  bottom: 30px;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 36px;
+  transition: all 0.5s;
+  z-index: 1;
+}
+.card img {
+  width: 100%;
+  transition: all 0.5s;
+}
+.card .people {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+.card:hover .bg {
+  transform: perspective(500px) rotateX(30deg);
+  box-shadow: 0 30px 30px -10px #333;
+}
+.card:hover .title {
+  /* translate3d 详见：问题img */
+  /* 顺便理解了rotate3d，还是拆分写比较简单 */
+  transform: perspective(500px) translate3d(0, -25px, 50px);
+}
+.card:hover .people {
+  opacity: 1;
+  transform: perspective(500px) translate3d(0, -50px, 50px);
+}

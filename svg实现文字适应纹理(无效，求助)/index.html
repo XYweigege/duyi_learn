@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>无效</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .svg {
+        width: 100vw;
+        height: 80vh;
+      }
+    </style>
+  </head>
+  <body>
+    <svg class="svg">
+      <defs>
+        <filter id="fl">
+          <!-- 每次只会显示最后一个滤镜的效果 -->
+          <!-- 图片滤镜 -->
+          <!-- 每个滤镜有一个结果：result -->
+          <feImage
+            href="./img/bg.jpg"
+            x="0"
+            y="0"
+            width="100%"
+            height="100%"
+            preserveAspectRatio="none"
+            result="ORIGIN_IMG"
+          ></feImage>
+          <!-- 颜色滤镜：把图片变成灰度图 -->
+          <!-- in：表示把哪个结果运用这个滤镜 -->
+          <feColorMatrix
+            in="ORIGIN_IMG"
+            type="saturate"
+            values="0"
+            result="GRAY_IMG"
+          />
+          <!-- 置换滤镜：让文字像素点偏移！ -->
+          <feDisplacementMap
+            in="SourceGraphic"
+            in2="GRAY_IMG"
+            scale="15"
+            xChannelSelector="R"
+            yChannelSelector="R"
+            result="TEXT"
+          />
+          <!-- 图片滤镜 -->
+          <feImage
+            href="./img/bg.jpg"
+            x="0"
+            y="0"
+            width="100%"
+            height="100%"
+            preserveAspectRatio="none"
+            result="BG"
+          ></feImage>
+          <!-- 颜色滤镜 -->
+          <feColorMatrix
+            in="TEXT"
+            result="TEXT2"
+            type="matrix"
+            values="1 0 0 0 0
+            0 1 0 0 0
+            0 0 1 0 0
+            0 0 0 .9 0
+            "
+          ></feColorMatrix>
+          <!-- 混合滤镜 -->
+          <!-- multiply 模式是指将两个图像的颜色相乘，通常会产生一个更暗的图像效果。这种模式在视觉上通常会保留重叠区域的细节，并会使颜色看起来更深、更丰富。 -->
+          <feBlend in="BG" in2="TEXT2" mode="multiply" result="blend" />
+        </filter>
+      </defs>
+      <!-- 详解见：问题img -->
+      <!-- preserveAspectRatio="none"表示拉伸铺满 -->
+      <!-- 写滤镜时要先注释掉 -->
+      <Image
+        href="./img/bg.jpg"
+        x="0"
+        y="0"
+        width="100%"
+        height="100%"
+        preserveAspectRatio="none"
+      ></Image>
+      <!-- text-anchor="middle"：将文本在水平方向上相对于x指定的中心点对齐 -->
+      <!-- alignment-baseline="middle"：将文本在垂直方向上相对于y指定的中心点对齐。 -->
+      <!-- 取值范围：start、middle、end -->
+      <Text
+        x="50%"
+        y="50%"
+        font-size="10em"
+        text-anchor="middle"
+        alignment-baseline="middle"
+        fill="red"
+        filter="url(#fl)"
+      >
+        <!-- 滤镜没东西就没任何效果！ -->
+        LOGO
+      </Text>
+    </svg>
+  </body>
+</html>
