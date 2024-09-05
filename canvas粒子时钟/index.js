@@ -4,6 +4,7 @@ const ctx = canvas.getContext("2d", {
 });
 
 // 设置宽高
+// 解决清晰度问题
 function initCanvasSize() {
   canvas.width = window.innerWidth * devicePixelRatio;
   canvas.height = window.innerHeight * devicePixelRatio;

@@ -1,6 +1,7 @@
 const canvas = document.querySelector(".canvas");
 const ctx = canvas.getContext("2d");
 
+// 解决清晰度问题
 canvas.width = window.innerWidth * devicePixelRatio;
 canvas.height = window.innerHeight * devicePixelRatio;
 
