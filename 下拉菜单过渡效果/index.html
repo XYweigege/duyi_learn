@@ -16,13 +16,16 @@
         overflow: hidden;
         transition: all 1s;
 
-        /* height: 0; 
-        max-height: 0; */
-        transform-origin: top;
-        transform: scaleY(0);
+        height: 0;
+
+        /* max-height: 0; */
+
+        /* transform-origin: top;
+        transform: scaleY(0); */
       }
       .select > span {
-        opacity: 0;
+        /* opacity: 0; */
+
         display: block;
         transition: all 0.6s linear;
       }
@@ -31,13 +34,16 @@
       /* 使用max-height不好：1、过渡效果会有问题，收回是从max-height开始的 2、max-height也不能保证够高！ */
       /* 使用transform:scaleY()： 效果有区别，且有点卡顿，但是不会重绘 */
       .text-select .text:focus ~ .select {
-        /* height: auto;
-        max-height: 300px; */
-        transform: scaleY(1);
+        /* height: auto; */
+
+        /* max-height: 300px; */
+
+        /* transform: scaleY(1); */
       }
 
       .text-select .text:focus ~ .select > span {
-        opacity: 1;
+        /* 配合 transform: scaleY 使用的*/
+        /* opacity: 1; */
       }
     </style>
   </head>
@@ -53,6 +59,6 @@
       </div>
     </div>
     <!-- 传统做法使用js -->
-    <!-- <script src="./index.js"></script> -->
+    <script src="./index.js"></script>
   </body>
 </html>
